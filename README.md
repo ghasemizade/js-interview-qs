@@ -28,3 +28,29 @@ If we used `let` instead of `var`, it would print `0 1 2` because `let` is block
 </details>
 
 ---
+
+###### 2. What's the output?
+
+```javascript
+for (let i = 0; i < 3; i++) {
+  setTimeout(() => console.log(i), 1000);
+}
+```
+
+- A: 0 1 2
+- B: 3 3 3
+- C: 0 1 2 (after 1 second delay)
+- D: undefined undefined undefined
+
+<details><summary><b>Answer</b></summary>
+<p>
+
+#### Answer: C
+
+`let` is block-scoped, meaning each iteration of the loop creates a new binding for `i`.
+When the `setTimeout` callback runs after 1 second, it "remembers" the value of `i` at the time of that iteration.
+
+</p>
+</details>
+
+---
