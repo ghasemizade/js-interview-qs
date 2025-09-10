@@ -88,3 +88,68 @@ Since the global object does not have a `name` property, `this.name` evaluates t
 </details>
 
 ---
+
+###### 4. What's the output?
+
+```javascript
+console.log([] + []);
+console.log([] + {});
+console.log({} + []);
+console.log({} + {});
+```
+
+- A:
+
+  ""  
+  [object Object]  
+  [object Object]  
+  NaN
+
+- B:
+
+  ""  
+  {}  
+  {}  
+  {}
+
+- C:
+
+  []  
+  {}  
+  {}  
+  {}
+
+- D: Throws an error
+
+<details><summary><b>Answer</b></summary>
+<p>
+
+#### Answer: A
+
+1.  `[] + []`
+    Both arrays are converted to strings (""), so result is an empty string.
+
+2.  `[] + {}`
+    [] → ""
+    {} → "[object Object]"
+    Concatenation gives "[object Object]".
+
+3.  `{} + []`
+    This is tricky!
+
+        * If a line starts with `{}`, JavaScript interprets it as a block statement, not an object literal.
+
+So effectively it’s +[], which becomes 0.
+
+Then "[object Object]" from [] results in "0[object Object]" in some contexts, but in most modern engines it evaluates as "[object Object]".
+
+Hence the logged output is "[object Object]".
+
+{} + {}
+Again, the first {} is treated as a block.
+So it becomes +{}, which tries to convert an object to a number → results in NaN.
+
+</p>
+</details>
+
+---
