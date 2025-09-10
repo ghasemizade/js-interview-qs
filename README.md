@@ -54,3 +54,37 @@ When the `setTimeout` callback runs after 1 second, it "remembers" the value of 
 </details>
 
 ---
+
+###### 3. What's the output?
+
+```javascript
+const obj = {
+  name: "John",
+  sayHi: function () {
+    setTimeout(function () {
+      console.log(`Hi ${this.name}`);
+    }, 1000);
+  },
+};
+
+obj.sayHi();
+```
+
+- A: Hi John
+- B: Hi undefined
+- C: Hi
+- D: ReferenceError
+
+<details><summary><b>Answer</b></summary>
+<p>
+
+#### Answer: B
+
+Inside the `setTimeout` callback, `this` does not refer to `obj`.
+Instead, in non–strict mode, `this` defaults to the global object (`window` in browsers, `global` in Node.js).
+Since the global object does not have a `name` property, `this.name` evaluates to `undefined`.
+
+</p>
+</details>
+
+---
