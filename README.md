@@ -153,3 +153,32 @@ So it becomes +{}, which tries to convert an object to a number → results in N
 </details>
 
 ---
+
+###### 5. What's the output?
+
+```javascript
+let x = 1;
+
+if (function f() {}) {
+  x += typeof f;
+}
+
+console.log(x);
+```
+
+- A: 1function
+- B: 1undefined
+- C: 1object
+- D: Throws an error
+
+<details><summary><b>Answer</b></summary>
+<p>
+
+#### Answer: B
+
+Named function expressions (`function f() {}`) create a binding for the name only inside the function itself, not outside.
+
+</p>
+</details>
+
+---
