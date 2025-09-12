@@ -215,3 +215,30 @@ Step by Step:
 </details>
 
 ---
+
+###### 7. What's the output?
+
+```javascript
+console.log([] == []);
+```
+
+- A: false
+- B: true
+- C: TypeError
+- D: undefined
+
+<details><summary><b>Answer</b></summary>
+<p>
+
+#### Answer: A
+
+In JavaScript, arrays are objects, and when you compare objects with `==` or `===`, you’re comparing their references in memory, not their contents.
+
+`[]` creates a new array instance every time.
+
+So `[] == []` compares two different objects in memory → result is false.
+
+</p>
+</details>
+
+---
