@@ -182,3 +182,36 @@ Named function expressions (`function f() {}`) create a binding for the name onl
 </details>
 
 ---
+
+###### 6. What's the output?
+
+```javascript
+console.log([] == ![]);
+```
+
+- A: false
+- B: true
+- C: TypeError
+- D: undefined
+
+<details><summary><b>Answer</b></summary>
+<p>
+
+#### Answer: B
+
+Step by Step:
+
+1. `![] == false`
+   because `[]` is truthy, so negating it gives `false`
+2. Now the comparison is `[] == false`
+3. When using `==` (loose equality), JavaScript does type coercion:
+
+   - `false` -> `0`(boolean to number)
+   - `[]` -> `""`(to primitive -> string) -> then`""`->`0`(string to number)
+
+4. So the comparison becomes: `0 == 0` -> true
+
+</p>
+</details>
+
+---
