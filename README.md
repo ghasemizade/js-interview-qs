@@ -242,3 +242,30 @@ So `[] == []` compares two different objects in memory → result is false.
 </details>
 
 ---
+
+###### 8. What's the output?
+
+```javascript
+let x = 0;
+
+console.log(x++);
+console.log(++x);
+```
+
+- A: 0 1
+- B: 1 2
+- C: 0 2
+- D: throw an error
+
+<details><summary><b>Answer</b></summary>
+<p>
+
+#### Answer: C
+
+`x++` -> return then increment
+`++x` -> increment then return
+
+</p>
+</details>
+
+---
