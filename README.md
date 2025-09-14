@@ -398,3 +398,39 @@ Since no `a` exists globally, the result is `undefined`.
 </details>
 
 ---
+
+###### 12. What's the output?
+
+```javascript
+console.log("5" + 1);
+console.log("5" - 1);
+```
+
+- A: 6, 4
+- B: 51, NaN
+- C: 51, 4
+- D: Throws an error
+
+<details><summary><b>Answer</b></summary>
+<p>
+
+#### Answer: C
+
+`"5" + 1`
+
+The `+` operator does string concatenation when one operand is a string.
+
+`"5" + 1` → `"51"`
+
+`"5" - 1`
+
+The `-` operator only works with numbers.
+
+`"5"` is coerced to a number (5)
+
+`5 - 1` → `4`
+
+</p>
+</details>
+
+---
