@@ -311,3 +311,53 @@ true coerces to 1 → 1 > 1 → false
 </details>
 
 ---
+
+###### 10. What's the output?
+
+```javascript
+const a = {};
+const b = { key: "b" };
+const c = { key: "c" };
+
+a[b] = 123;
+a[c] = 456;
+
+console.log(a[b]);
+```
+
+- A: 123
+- B: 456
+- C: b
+- D: undefined
+
+<details><summary><b>Answer</b></summary>
+<p>
+
+#### Answer: B
+
+When using objects as keys in a plain JavaScript object (`{}`), the keys are implicitly converted to strings.
+
+`a[b] = 123;`
+
+Here `b` is an object `{ key: 'b' }`.
+
+When used as a property key, it’s converted via `.toString()` → `"[object Object]"`.
+
+So this actually sets:
+
+```javascript
+a["[object Object]"] = 123;
+```
+
+`a[c] = 456;`
+
+Same process: `c` → `"[object Object]"`.
+
+This overwrites the previous value.
+
+So `a[b]` is effectively `a["[object Object]"]`, which equals `456`.
+
+</p>
+</details>
+
+---
