@@ -269,3 +269,45 @@ console.log(++x);
 </details>
 
 ---
+
+###### 9. What's the output?
+
+```javascript
+console.log(1 < 2 < 3);
+console.log(3 > 2 > 1);
+```
+
+- A: true true
+- B: true false
+- C: false true
+- D: throw an error
+
+<details><summary><b>Answer</b></summary>
+<p>
+
+#### Answer: B
+
+`1 < 2 < 3`
+
+`1 < 2 → true`
+
+Now: `true < 3`
+
+In numeric comparison, true is coerced to 1 → 1 < 3 → true
+
+✅ Output: `true`
+
+`3 > 2 > 1`
+
+`3 > 2 → true`
+
+Now: `true > 1`
+
+true coerces to 1 → 1 > 1 → false
+
+✅ Output: `false`
+
+</p>
+</details>
+
+---
