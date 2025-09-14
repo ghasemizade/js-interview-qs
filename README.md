@@ -361,3 +361,40 @@ So `a[b]` is effectively `a["[object Object]"]`, which equals `456`.
 </details>
 
 ---
+
+###### 11. What's the output?
+
+```javascript
+let obj = {
+  a: 10,
+  b: () => console.log(this.a),
+};
+
+obj.b();
+```
+
+- A: 10
+- B: null
+- C: throws an error
+- D: undefined
+
+<details><summary><b>Answer</b></summary>
+<p>
+
+#### Answer: D
+
+Arrow functions don’t have their own `this`.
+Instead, they lexically inherit `this` from their surrounding scope.
+
+`b` is defined as an arrow function inside `obj`.
+
+But the surrounding scope is not `obj`, it’s the global scope (or `undefined` in strict mode).
+
+So `this.a` looks for `a` in the global object, not in `obj`.
+
+Since no `a` exists globally, the result is `undefined`.
+
+</p>
+</details>
+
+---
