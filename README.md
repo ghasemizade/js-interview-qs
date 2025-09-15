@@ -408,7 +408,7 @@ console.log("5" - 1);
 
 - A: 6, 4
 - B: 51, NaN
-- C: 51, 4
+- C: "51", 4
 - D: Throws an error
 
 <details><summary><b>Answer</b></summary>
@@ -429,6 +429,37 @@ The `-` operator only works with numbers.
 `"5"` is coerced to a number (5)
 
 `5 - 1` → `4`
+
+</p>
+</details>
+
+---
+
+###### 13. What's the output?
+
+```javascript
+let a = 1;
+let b = a++;
+console.log(a, b);
+```
+
+- A: 1 2
+- B: 2 1
+- C: 2 2
+- D: 1 1
+
+<details><summary><b>Answer</b></summary>
+<p>
+
+#### Answer: B
+
+`a++` is the postfix increment operator.
+
+It returns the current value of `a`, then increments `a` afterwards.
+
+`a++` → use current value, then increment
+
+`++a` → increment first, then use value
 
 </p>
 </details>
