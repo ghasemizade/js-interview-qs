@@ -494,3 +494,39 @@ When using the + operator with arrays, JavaScript first tries to convert them to
 </details>
 
 ---
+
+###### 15. What's the output?
+
+```javascript
+function test(x = y, y = 2) {
+  console.log(x, y);
+}
+test();
+```
+
+- A: undefined
+- B: 2 2
+- C: ReferenceError
+- D: null 2
+
+<details><summary><b>Answer</b></summary>
+<p>
+
+#### Answer: D
+
+Function parameters are initialized from left to right.
+
+1. When evaluating `x = y`, JavaScript tries to use the value of `y`.
+
+2. But `y` hasn’t been initialized yet — it’s only declared later as the second parameter with default `2`.
+
+3. This leads to the Temporal Dead Zone (TDZ) error, similar to using a let variable before its declaration.
+
+```javascript
+ReferenceError: Cannot access 'y' before initialization
+```
+
+</p>
+</details>
+
+---
