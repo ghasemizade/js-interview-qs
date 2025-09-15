@@ -465,3 +465,32 @@ It returns the current value of `a`, then increments `a` afterwards.
 </details>
 
 ---
+
+###### 14. What's the output?
+
+```javascript
+console.log([1, 2, 3] + [4, 5, 6]);
+```
+
+- A: [1, 2, 3, 4, 5, 6]
+- B: "1,2,3 4,5,6"
+- C: Throws an error
+- D: "1,2,34,5,6"
+
+<details><summary><b>Answer</b></summary>
+<p>
+
+#### Answer: D
+
+When using the + operator with arrays, JavaScript first tries to convert them to primitives.
+
+`[1, 2, 3].toString()` → "1,2,3"
+
+`[4, 5, 6].toString()` → "4,5,6"
+
+`"1,2,3"` + `"4,5,6"` → `"1,2,34,5,6"`
+
+</p>
+</details>
+
+---
