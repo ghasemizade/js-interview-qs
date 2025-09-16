@@ -530,3 +530,46 @@ ReferenceError: Cannot access 'y' before initialization
 </details>
 
 ---
+
+###### 16. What's the output?
+
+```javascript
+console.log("1");
+setTimeout(() => console.log("2"), 0);
+Promise.resolve()
+  .then(() => console.log("3"))
+  .then(() => console.log("4"));
+console.log("5");
+```
+
+- A: 1 2 3 4 5
+- B: 1 5 3 4 2
+- C: 1 5 2 3 4
+- D: 1 3 4 5 2
+
+<details><summary><b>Answer</b></summary>
+<p>
+
+#### Answer: B
+
+### Execution order in JavaScript
+
+1.  Synchronous code first →
+    `console.log('1')` → prints `1`
+    `console.log('5')` → prints `5`
+2.  Microtasks (Promises) next →
+    `Promise.resolve().then(...)` is queued as a microtask.
+    Microtasks run before macrotasks.
+
+    - Prints `3`
+
+    - Then chains into `.then(...)` → prints `4`
+
+3.  Macrotasks (setTimeout) last →
+    `setTimeout(..., 0)` executes after microtasks.
+    - Prints `2`
+
+</p>
+</details>
+
+---
