@@ -573,3 +573,34 @@ console.log("5");
 </details>
 
 ---
+
+###### 17. What's the output?
+
+```javascript
+async function test() {
+  return 5;
+}
+
+test().then(console.log);
+```
+
+- A: Promise { 5 }
+- B: undefined
+- C: 5
+- D: Throws an error
+
+<details><summary><b>Answer</b></summary>
+<p>
+
+#### Answer: C
+
+- An `async` function always returns a Promise, even if you return a plain value.
+
+- `return 5`; is wrapped as `Promise.resolve(5)`.
+
+- When we call `test().then(console.log)`, the promise resolves with 5, and the then callback logs it.
+
+</p>
+</details>
+
+---
