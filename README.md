@@ -604,3 +604,45 @@ test().then(console.log);
 </details>
 
 ---
+
+---
+
+###### 18. What's the output?
+
+```javascript
+Promise.resolve()
+  .then(() => console.log("A"))
+  .then(() => console.log("B"));
+
+Promise.resolve().then(() => console.log("C"));
+```
+
+- A: A B C
+- B: A C B
+- C: C A B
+- D: B A C
+
+<details><summary><b>Answer</b></summary>
+<p>
+
+#### Answer: B
+
+The first `Promise.resolve()` schedules `.then(() => console.log('A'))` as a microtask.
+
+Once `A` finishes, the next `.then(() => console.log('B'))` is queued as another microtask.
+
+⚡ Important: B can’t be queued until A has run.
+
+The second `Promise.resolve().then(() => console.log('C'))` is also scheduled immediately as a microtask.
+
+#### So the execution order is:
+
+- Run A (first microtask).
+- While scheduling, B is now queued.
+- Next pending microtask is C.
+- Finally, B runs.
+
+</p>
+</details>
+
+---
