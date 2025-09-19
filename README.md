@@ -726,7 +726,7 @@ obj.sayHi();
 <details><summary><b>Answer</b></summary>
 <p>
 
-#### Answer: A
+#### Answer: B
 
 Inside `sayHi`, the callback passed to `setTimeout` is a regular function.
 
