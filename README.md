@@ -728,15 +728,50 @@ obj.sayHi();
 
 #### Answer: B
 
-Inside `sayHi`, the callback passed to `setTimeout` is a regular function.
+- Inside `sayHi`, the callback passed to `setTimeout` is a regular function.
 
-In regular functions, `this` is determined by how the function is called.
+- In regular functions, `this` is determined by how the function is called.
 
-Here, the callback is invoked by the timer, not as a method of `obj`.
+- Here, the callback is invoked by the timer, not as a method of `obj`.
 
-So `this` refers to the global object (`window` in browsers, `global` in Node.js).
+- So `this` refers to the global object (`window` in browsers, `global` in Node.js).
 
 Since the global object doesn’t have a `name` property (unless one is explicitly set), `this.name` is `undefined`.
+
+</p>
+</details>
+
+---
+
+###### 22. What's the output?
+
+```javascript
+let x = 1;
+
+if (function f() {}) {
+  x += typeof f;
+}
+
+console.log(x);
+```
+
+- A: 1function
+- B: 1undefined
+- C: NaN
+- D: Throws an error
+
+<details><summary><b>Answer</b></summary>
+<p>
+
+#### Answer: B
+
+- The `if` condition contains `function f() {}`, which is treated as a function expression, not a declaration.
+
+- In JavaScript, named function expressions don’t create a variable in the outer scope.
+
+- The name (`f`) is only available inside the function body.
+
+- Therefore, outside the function, `typeof f` evaluates to `"undefined"`.
 
 </p>
 </details>
