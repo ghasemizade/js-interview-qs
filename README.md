@@ -675,3 +675,30 @@ By the time the `setTimeout` callbacks execute (after ~1 second), the loop has a
 </details>
 
 ---
+
+###### 20. What's the output?
+
+```javascript
+for (let i = 0; i < 3; i++) {
+  setTimeout(() => console.log(i), 1000);
+}
+```
+
+- A: 1 2 3
+- B: 0 1 2
+- C: 3 3 3
+- D: undefined undefined undefined
+
+<details><summary><b>Answer</b></summary>
+<p>
+
+#### Answer: B
+
+`let` is block-scoped, so each iteration of the loop creates a new binding for `i`.
+
+When the `setTimeout` callback runs after ~1 second, it “remembers” the correct value of `i` from that iteration (thanks to block scope).
+
+</p>
+</details>
+
+---
