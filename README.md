@@ -726,17 +726,17 @@ obj.sayHi();
 <details><summary><b>Answer</b></summary>
 <p>
 
-#### Answer: C
+#### Answer: A
 
-- Inside `obj.sayHi`, we call `setTimeout` with a regular function, not an arrow function.
+Inside `sayHi`, the callback passed to `setTimeout` is a regular function.
 
-- In a regular function, `this` is determined by how the function is called.
+In regular functions, `this` is determined by how the function is called.
 
-- The `setTimeout` callback is invoked by the timer, not as a method of `obj`.
+Here, the callback is invoked by the timer, not as a method of `obj`.
 
-- So `this` refers to the global object (`window` in browsers, `global` in Node.js).
+So `this` refers to the global object (`window` in browsers, `global` in Node.js).
 
-Since the global object usually doesn’t have a `name` property, `this.name` is `undefined`.
+Since the global object doesn’t have a `name` property (unless one is explicitly set), `this.name` is `undefined`.
 
 </p>
 </details>
