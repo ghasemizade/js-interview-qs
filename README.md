@@ -646,3 +646,32 @@ The second `Promise.resolve().then(() => console.log('C'))` is also scheduled im
 </details>
 
 ---
+
+###### 19. What's the output?
+
+```javascript
+for (var i = 0; i < 3; i++) {
+  setTimeout(() => console.log(i), 1000);
+}
+```
+
+- A: 1 2 3
+- B: 0 1 2
+- C: 3 3 3
+- D: undefined undefined undefined
+
+<details><summary><b>Answer</b></summary>
+<p>
+
+#### Answer: C
+
+`var` is function-scoped, not block-scoped.
+
+That means the same `i` is shared across all iterations of the loop.
+
+By the time the `setTimeout` callbacks execute (after ~1 second), the loop has already finished and `i = 3`.
+
+</p>
+</details>
+
+---
