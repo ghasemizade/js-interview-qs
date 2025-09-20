@@ -1,4 +1,4 @@
-# js-interview-qs
+# Javascript Interview Qestions
 
 ###### 1. What's the output?
 
