@@ -1,4 +1,4 @@
-# Javascript Interview Qestions
+![JavaScript-Interview-Questions](https://github.com/user-attachments/assets/a7c7946b-c1b3-4bb6-96b1-8e4164224ebd)
 
 ###### 1. What's the output?
 
