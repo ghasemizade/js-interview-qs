@@ -2,6 +2,8 @@
 
 import { Button } from '@/components/ui/button';
 import type { Difficulty } from '@/lib/questions';
+import Image from 'next/image';
+import FloatingObject from './floating-object';
 
 interface DifficultyScreenProps {
   onSelectDifficulty: (difficulty: Difficulty) => void;
@@ -10,11 +12,13 @@ interface DifficultyScreenProps {
 export default function DifficultyScreen({
   onSelectDifficulty,
 }: DifficultyScreenProps) {
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-background via-card to-background p-4 md:p-8 flex items-center justify-center">
       <div className="max-w-3xl w-full">
         {/* Header */}
         <div className="text-center mb-12">
+          <FloatingObject />
           <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-3">
             JavaScript Interview Quiz
           </h1>
@@ -137,7 +141,7 @@ export default function DifficultyScreen({
         {/* Footer */}
         <div className="text-center mt-12">
           <p className="text-muted-foreground text-sm">
-            Each quiz contains 10 questions specific to your selected level
+            Each quiz contains some questions specific to your selected level
           </p>
         </div>
       </div>

@@ -49,7 +49,7 @@ export default function Home() {
           onChangeDifficulty={handleChangeDifficulty}
         />
       )}
-      <div className="absolute bottom-0 right-0 p-4">
+      <div className="absolute bottom-0 right-0 p-4 font-semibold">
         For Supporting❤️, Give Me
         <span className='pr-1'></span>
         <Link href={"https://github.com/ghasemizade/js-interview-qs"} className='border border-gray-400 hover:border-yellow-400 px-1.5 rounded-md'>star⭐</Link>
