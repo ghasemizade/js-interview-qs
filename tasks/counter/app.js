@@ -1,5 +1,3 @@
-
-
 function makeCounter(initVal = 0){
     let current = initVal;
     return function() {

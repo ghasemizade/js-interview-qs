@@ -1,0 +1,8 @@
+[
+  {
+    "id": "make-counter",
+    "title": "Make Counter",
+    "question": "Implement makeCounter...",
+    "starterCode": "function makeCounter(initVal = 0) {\n  // TODO\n}"
+  }
+]

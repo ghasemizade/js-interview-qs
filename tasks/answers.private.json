@@ -1,0 +1,6 @@
+{
+  "make-counter": {
+    "answer": "function makeCounter(initVal = 0) {\n  return () => initVal++;\n}",
+    "explanation": "Closure keeps state."
+  }
+}
