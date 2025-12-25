@@ -4,5 +4,17 @@
     "title": "Make Counter",
     "question": "Implement makeCounter...",
     "starterCode": "function makeCounter(initVal = 0) {\n  // TODO\n}"
+  },
+  {
+    "id": "mean",
+    "title": "Mean function",
+    "question": "Implement a function mean(array) that returns the mean (also known as average) of the values inside array, which is an array of numbers.",
+    "starterCode": "function makeCounter(initVal = 0) {\n  // TODO\n}"
+  },
+  {
+    "id": "Portotype",
+    "title": "portotype",
+    "question": "The Function.prototype.call() method calls the function with a given this value and arguments provided individually. Implement your own Function.prototype.call without calling the native call method. To avoid overwriting the actual Function.prototype.call, implement the function as Function.prototype.myCall.",
+    "starterCode": "function makeCounter(initVal = 0) {\n  // TODO\n}"
   }
 ]
