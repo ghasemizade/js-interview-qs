@@ -5,7 +5,7 @@ import QuizScreen from '@/components/quiz-screen';
 import ResultsScreen from '@/components/results-screen';
 import DifficultyScreen from '@/components/difficulty-screen';
 import type { Difficulty } from '@/lib/questions';
-import Link from 'next/link';
+
 
 export default function Home() {
   const [difficulty, setDifficulty] = useState<Difficulty | null>(null);
@@ -49,11 +49,6 @@ export default function Home() {
           onChangeDifficulty={handleChangeDifficulty}
         />
       )}
-      <div className="fixed right-0 bottom-0 p-4 font-semibold">
-        For Supporting❤️, Give Me
-        <span className='pr-1'></span>
-        <Link href={"https://github.com/ghasemizade/js-interview-qs"} className='border border-gray-400 hover:border-yellow-400 px-1.5 rounded-md'>star⭐</Link>
-      </div>
     </main>
   );
 }
