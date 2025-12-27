@@ -2,34 +2,46 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
+import { AbsorptionAnimation } from '@/components/think-animation';
 
 
 export default function Home() {
 
   return (
-    <main className="min-h-screen bg-background text-foreground container mx-auto p-4">
-      <section className='flex justify-center items-center flex-col gap-10 text-center my-10'>
-        <h1 className='text-3xl font-bold'>
-          Master JavaScript, HTML & CSS — One Level at a Time
-        </h1>
-        <p className='max-w-md'>
-          Practice real interview questions and JavaScript algorithms, carefully categorized from beginner to advanced. Built to help you think, not memorize.
-        </p>
-      </section>
-      <section className="flex justify-center items-center gap-10 flex-wrap p-10">
-        <Link href={"/javascript"} className="min-w-xs flex justify-between items-center gap-5 border-2 hover:border-amber-300 p-2 pr-8 rounded-2xl duration-75">
-          <Image src={"Javascript-logo.jpg"} width={50} height={50} alt='js-logo' className='rounded-lg' />
-          <h2>Javascript Problemset</h2>
-        </Link>
-        <Link href={"/javascript"} className="min-w-xs flex justify-between items-center gap-5 border-2 hover:border-orange-500 p-2 pr-8 rounded-2xl duration-75">
-          <Image src={"HTML5-logo.png"} width={50} height={50} alt='js-logo' className='rounded-lg' />
-          <h2>HTML Problemset</h2>
-        </Link>
-        <Link href={"/javascript"} className="min-w-xs flex justify-between items-center gap-5 border-2 hover:border-purple-500 p-2 pr-8 rounded-2xl duration-75">
-          <Image src={"css-logo.png"} width={50} height={50} alt='js-logo' className='rounded-lg' />
-          <h2>CSS Problemset</h2>
-        </Link>
-      </section>
-    </main>
+    <>
+      <div
+        className="absolute inset-0 -z-10 transition-opacity duration-1000 ease-out"
+      >
+        <AbsorptionAnimation shape="circle" />
+      </div>
+      <main className="min-h-screen bg-transparent text-foreground container mx-auto p-4 z-10">
+        <section className='flex justify-center items-center flex-col gap-10 text-center my-10'>
+          <h1 className='text-5xl font-bold tracking-widest'>
+            Master JavaScript, HTML & CSS — One Level at a Time
+          </h1>
+          <p className='max-w-md'>
+            Practice real interview questions and JavaScript algorithms, carefully categorized from beginner to advanced. Built to help you think, not memorize.
+          </p>
+        </section>
+        <section className="flex justify-center items-center gap-10 flex-wrap p-10">
+          <Link href={"/javascript"} className="min-w-xs flex justify-between items-center gap-5 border-2 hover:border-amber-300 p-2 pr-8 rounded-2xl duration-75">
+            <Image src={"Javascript-logo.jpg"} width={50} height={50} alt='js-logo' className='rounded-lg' />
+            <h2>Javascript Problemset</h2>
+          </Link>
+          <Link href={"/javascript"} className="min-w-xs flex justify-between items-center gap-5 border-2 hover:border-orange-500 p-2 pr-8 rounded-2xl duration-75">
+            <Image src={"HTML5-logo.png"} width={50} height={50} alt='js-logo' className='rounded-lg' />
+            <h2>HTML Problemset</h2>
+          </Link>
+          <Link href={"/javascript"} className="min-w-xs flex justify-between items-center gap-5 border-2 hover:border-purple-500 p-2 pr-8 rounded-2xl duration-75">
+            <Image src={"css-logo.png"} width={50} height={50} alt='js-logo' className='rounded-lg' />
+            <h2>CSS Problemset</h2>
+          </Link>
+        </section>
+      </main>
+    </>
   );
 }
+function useState(arg0: boolean): [any, any] {
+  throw new Error('Function not implemented.');
+}
+

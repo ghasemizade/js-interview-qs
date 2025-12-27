@@ -37,8 +37,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className='dark' style={{ colorScheme: "dark" }}>
-      <body className={`font-sans antialiased`} >
-        <ThemeProvider attribute={"class"} defaultTheme='system' enableSystem={true}>
+      <body className={`font-sans antialiased z-10`} >
+        <ThemeProvider attribute={"class"} defaultTheme='system' enableSystem={false}>
           {children}
           <Analytics />
           <div className="fixed right-0 bottom-0 p-4 font-semibold">
