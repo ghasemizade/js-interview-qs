@@ -7,7 +7,7 @@ interface ResultsScreenProps {
   results: any
   onRetry: () => void
   onChangeDifficulty: () => void
-  quizType?: "javascript" | "html"
+  quizType?: "javascript" | "html" | "css"
 }
 
 export default function ResultsScreen({
@@ -123,10 +123,10 @@ export default function ResultsScreen({
                             <div
                               key={optionIndex}
                               className={`p-2 rounded text-sm ${isCorrectAnswer
-                                  ? "bg-green-500/10 text-green-700 dark:text-green-400 border border-green-500/30"
-                                  : isUserAnswer && !isCorrect
-                                    ? "bg-red-500/10 text-red-700 dark:text-red-400 border border-red-500/30"
-                                    : "text-muted-foreground"
+                                ? "bg-green-500/10 text-green-700 dark:text-green-400 border border-green-500/30"
+                                : isUserAnswer && !isCorrect
+                                  ? "bg-red-500/10 text-red-700 dark:text-red-400 border border-red-500/30"
+                                  : "text-muted-foreground"
                                 }`}
                             >
                               <span className="font-medium">{["A", "B", "C", "D"][optionIndex]}.</span> {option}

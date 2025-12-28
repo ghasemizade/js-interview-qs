@@ -10,7 +10,7 @@ interface QuizScreenProps {
   difficulty: Difficulty
   onComplete: (results: any) => void
   onChangeDifficulty: () => void
-  quizType?: "javascript" | "html"
+  quizType?: "javascript" | "html" | "css"
 }
 
 export default function QuizScreen({
