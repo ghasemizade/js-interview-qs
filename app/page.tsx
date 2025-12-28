@@ -16,7 +16,7 @@ export default function Home() {
       </div>
       <main className="min-h-screen bg-transparent text-foreground container mx-auto p-4 z-10">
         <section className='flex justify-center items-center flex-col gap-10 text-center my-10'>
-          <h1 className='text-5xl font-bold tracking-widest'>
+          <h1 className='text-3xl font-bold tracking-widest sm:text-4xl md:text-5xl lg:text-6xl'>
             Master JavaScript, HTML & CSS — One Level at a Time
           </h1>
           <p className='max-w-md'>
@@ -28,7 +28,7 @@ export default function Home() {
             <Image src={"Javascript-logo.jpg"} width={50} height={50} alt='js-logo' className='rounded-lg' />
             <h2>Javascript Problemset</h2>
           </Link>
-          <Link href={"/javascript"} className="min-w-xs flex justify-between items-center gap-5 border-2 hover:border-orange-500 p-2 pr-8 rounded-2xl duration-75">
+          <Link href={"/html"} className="min-w-xs flex justify-between items-center gap-5 border-2 hover:border-orange-500 p-2 pr-8 rounded-2xl duration-75">
             <Image src={"HTML5-logo.png"} width={50} height={50} alt='js-logo' className='rounded-lg' />
             <h2>HTML Problemset</h2>
           </Link>
