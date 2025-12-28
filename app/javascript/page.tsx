@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import QuizScreen from '@/components/quiz-screen';
 import ResultsScreen from '@/components/results-screen';
-import DifficultyScreen from '@/components/difficulty-screen';
+import DifficultyScreen from '@/components/difficulty-screen-js';
 import type { Difficulty } from '@/lib/questions';
 
 export default function Home() {
