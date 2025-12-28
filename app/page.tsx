@@ -24,15 +24,23 @@ export default function Home() {
           </p>
         </section>
         <section className="flex justify-center items-center gap-10 flex-wrap p-10">
-          <Link href={"/javascript"} className="min-w-xs flex justify-between items-center gap-5 border-2 hover:border-amber-300 p-2 pr-8 rounded-2xl duration-75">
+          <Link href={"/javascript"} className="min-w-md flex justify-between items-start gap-5 border-2 hover:border-amber-300 p-2 pr-2 rounded-2xl duration-75">
+            <div>
+              <h2 className='text-4xl font-black text-amber-300'>Javascript</h2>
+              <h3 className='font-bold pt-10'>Javascript Interview Quiz</h3>
+              <p className='max-w-80 text-lg font-medium text-muted-foreground'>Test your JavaScript knowledge with 30 questions across three difficulty levels</p>
+            </div>
             <Image src={"Javascript-logo.jpg"} width={50} height={50} alt='js-logo' className='rounded-lg' />
-            <h2>Javascript Problemset</h2>
           </Link>
-          <Link href={"/html"} className="min-w-xs flex justify-between items-center gap-5 border-2 hover:border-orange-500 p-2 pr-8 rounded-2xl duration-75">
+          <Link href={"/html"} className="min-w-xs flex justify-between items-start gap-5 border-2 hover:border-orange-500 p-2 pr-2 rounded-2xl duration-75">
+            <div>
+              <h2 className='text-4xl font-black text-orange-500'>HTML</h2>
+              <h3 className='font-bold pt-10'>HTML Interview Quiz</h3>
+              <p className='max-w-80 text-lg font-medium text-muted-foreground'>Master HTML fundamentals and accessibility with 30 questions across three difficulty levels</p>
+            </div>
             <Image src={"HTML5-logo.png"} width={50} height={50} alt='js-logo' className='rounded-lg' />
-            <h2>HTML Problemset</h2>
           </Link>
-          <Link href={"/javascript"} className="min-w-xs flex justify-between items-center gap-5 border-2 hover:border-purple-500 p-2 pr-8 rounded-2xl duration-75">
+          <Link href={"/javascript"} className="min-w-xs flex justify-between items-center gap-5 border-2 hover:border-purple-500 p-2 pr-2 rounded-2xl duration-75">
             <Image src={"css-logo.png"} width={50} height={50} alt='js-logo' className='rounded-lg' />
             <h2>CSS Problemset</h2>
           </Link>
