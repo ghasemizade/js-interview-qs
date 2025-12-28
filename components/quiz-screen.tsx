@@ -1,45 +1,48 @@
-'use client';
+"use client"
 
-import { useState } from 'react';
-import { Button } from '@/components/ui/button';
-import QuestionCard from './question-card';
-import { questions } from '@/lib/questions';
-import type { Difficulty } from '@/lib/questions';
+import { useState } from "react"
+import { Button } from "@/components/ui/button"
+import QuestionCard from "./question-card"
+import { questions } from "@/lib/questions"
+import type { Difficulty } from "@/lib/questions"
 
 interface QuizScreenProps {
-  difficulty: Difficulty;
-  onComplete: (results: any) => void;
-  onChangeDifficulty: () => void;
+  difficulty: Difficulty
+  onComplete: (results: any) => void
+  onChangeDifficulty: () => void
+  quizType?: "javascript" | "html"
 }
 
 export default function QuizScreen({
   difficulty,
   onComplete,
   onChangeDifficulty,
+  quizType = "javascript",
 }: QuizScreenProps) {
-  const filteredQuestions = questions.filter((q) => q.difficulty === difficulty);
+  const allQuestions = quizType === "html" ? require("@/lib/html-questions").htmlQuestions : questions
+  const filteredQuestions = allQuestions.filter((q: any) => q.difficulty === difficulty)
 
-  const [currentQuestion, setCurrentQuestion] = useState(0);
-  const [selectedAnswers, setSelectedAnswers] = useState<Record<number, number>>({});
+  const [currentQuestion, setCurrentQuestion] = useState(0)
+  const [selectedAnswers, setSelectedAnswers] = useState<Record<number, number>>({})
 
   const handleSelectAnswer = (answerIndex: number) => {
     setSelectedAnswers({
       ...selectedAnswers,
       [currentQuestion]: answerIndex,
-    });
-  };
+    })
+  }
 
   const handleNext = () => {
     if (currentQuestion < filteredQuestions.length - 1) {
-      setCurrentQuestion(currentQuestion + 1);
+      setCurrentQuestion(currentQuestion + 1)
     }
-  };
+  }
 
   const handlePrevious = () => {
     if (currentQuestion > 0) {
-      setCurrentQuestion(currentQuestion - 1);
+      setCurrentQuestion(currentQuestion - 1)
     }
-  };
+  }
 
   const handleSubmit = () => {
     const results = {
@@ -47,19 +50,16 @@ export default function QuizScreen({
       totalQuestions: filteredQuestions.length,
       questions: filteredQuestions,
       difficulty,
-    };
-    onComplete(results);
-  };
+      quizType,
+    }
+    onComplete(results)
+  }
 
-  const isLastQuestion = currentQuestion === filteredQuestions.length - 1;
-  const isAnswered = currentQuestion in selectedAnswers;
+  const isLastQuestion = currentQuestion === filteredQuestions.length - 1
+  const isAnswered = currentQuestion in selectedAnswers
 
   const difficultyLabel =
-    difficulty === 'junior'
-      ? 'Junior Developer'
-      : difficulty === 'mid'
-      ? 'Mid-Level Developer'
-      : 'Senior Developer';
+    difficulty === "junior" ? "Junior Developer" : difficulty === "mid" ? "Mid-Level Developer" : "Senior Developer"
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-background via-card to-background p-4 md:p-8">
@@ -68,24 +68,19 @@ export default function QuizScreen({
         <div className="mb-8">
           <div className="flex items-center justify-between mb-4">
             <h1 className="text-3xl md:text-4xl font-bold text-foreground">
-              JavaScript Interview Quiz
+              {quizType === "html" ? "HTML Interview Quiz" : "JavaScript Interview Quiz"}
             </h1>
             <div className="flex items-center gap-3">
               <span
-                className={`px-3 py-1 rounded-full text-sm font-semibold text-white ${
-                  difficulty === 'junior'
-                    ? 'bg-blue-500'
-                    : difficulty === 'mid'
-                    ? 'bg-amber-500'
-                    : 'bg-purple-500'
-                }`}
+                className={`px-3 py-1 rounded-full text-sm font-semibold text-white ${difficulty === "junior" ? "bg-blue-500" : difficulty === "mid" ? "bg-amber-500" : "bg-purple-500"
+                  }`}
               >
                 {difficultyLabel}
               </span>
             </div>
           </div>
           <p className="text-muted-foreground text-sm md:text-base">
-            Test your {difficultyLabel.toLowerCase()} JavaScript skills
+            Test your {difficultyLabel.toLowerCase()} {quizType === "html" ? "HTML" : "JavaScript"} skills
           </p>
         </div>
 
@@ -124,16 +119,13 @@ export default function QuizScreen({
             onClick={handlePrevious}
             disabled={currentQuestion === 0}
             variant="outline"
-            className="flex-1"
+            className="flex-1 bg-transparent"
           >
             ← Previous
           </Button>
 
           {!isLastQuestion ? (
-            <Button
-              onClick={handleNext}
-              className="flex-1"
-            >
+            <Button onClick={handleNext} className="flex-1">
               Next →
             </Button>
           ) : (
@@ -150,19 +142,13 @@ export default function QuizScreen({
         {/* Question Status and Change Difficulty */}
         <div className="flex gap-3 items-center justify-between">
           <p className="text-xs md:text-sm text-muted-foreground">
-            {Object.keys(selectedAnswers).length} of {filteredQuestions.length} questions
-            answered
+            {Object.keys(selectedAnswers).length} of {filteredQuestions.length} questions answered
           </p>
-          <Button
-            onClick={onChangeDifficulty}
-            variant="outline"
-            size="sm"
-            className="text-xs"
-          >
+          <Button onClick={onChangeDifficulty} variant="outline" size="sm" className="text-xs bg-transparent">
             Change Level
           </Button>
         </div>
       </div>
     </div>
-  );
+  )
 }
