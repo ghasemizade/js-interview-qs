@@ -40,7 +40,7 @@ export default function Home() {
             </div>
             <Image src={"HTML5-logo.png"} width={50} height={50} alt='js-logo' className='rounded-lg' />
           </Link>
-          <Link href={"/javascript"} className="min-w-xs flex justify-between items-start gap-5 border-2 hover:border-purple-500 p-2 pr-2 rounded-2xl duration-75">
+          <Link href={"/css"} className="min-w-xs flex justify-between items-start gap-5 border-2 hover:border-purple-500 p-2 pr-2 rounded-2xl duration-75">
             <div>
               <h2 className='text-4xl font-black text-purple-500'>CSS</h2>
               <h3 className='font-bold pt-10'>CSS Interview Quiz</h3>
