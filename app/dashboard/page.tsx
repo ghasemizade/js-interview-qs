@@ -17,7 +17,7 @@ function DashboardContent() {
     return (
         <main className="min-h-screen bg-gradient-to-br from-background via-card to-background">
             {/* Header */}
-            <header className="border-b border-border">
+            <header className="border-b border-border z-10 relative">
                 <div className="max-w-6xl mx-auto px-4 md:px-8 py-6 flex items-center justify-between">
                     <div>
                         <h1 className="text-2xl font-bold text-foreground">Interview Quiz Platform</h1>

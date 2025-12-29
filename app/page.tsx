@@ -23,11 +23,7 @@ export default function Home() {
 
   return (
     <>
-      <div
-        className="absolute inset-0 -z-10 transition-opacity duration-1000 ease-out"
-      >
-        <AbsorptionAnimation shape="circle" />
-      </div>
+
       <div className="flex items-center justify-center min-h-screen">
         <p className="text-gray-600">Loading...</p>
       </div>
