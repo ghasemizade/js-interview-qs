@@ -4,12 +4,14 @@ import { Analytics } from '@vercel/analytics/next'
 import { ThemeProvider } from 'next-themes';
 import Link from 'next/link';
 import './globals.css'
+import { AuthProvider } from '@/lib/auth-context';
+import { QuizProvider } from '@/lib/quiz-context';
 
 const _geist = Geist({ subsets: ["latin"] });
 const _geistMono = Geist_Mono({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: 'JavaScript Interview Question',
+  title: 'Interview Question',
   description: 'Created By Hosein',
   icons: {
     icon: [
@@ -38,15 +40,19 @@ export default function RootLayout({
   return (
     <html lang="en" className='dark' style={{ colorScheme: "dark" }}>
       <body className={`font-sans antialiased z-10`} >
-        <ThemeProvider attribute={"class"} defaultTheme='system' enableSystem={false}>
-          {children}
-          <Analytics />
-          <div className="fixed right-0 bottom-0 p-4 font-semibold">
-            For Supporting❤️, Give Me
-            <span className='pr-1'></span>
-            <Link href={"https://github.com/ghasemizade/js-interview-qs"} className='border border-gray-400 hover:border-yellow-400 px-1.5 rounded-md'>star⭐</Link>
-          </div>
-        </ThemeProvider>
+        <AuthProvider>
+          <QuizProvider>
+            <ThemeProvider attribute={"class"} defaultTheme='system' enableSystem={false}>
+              {children}
+              <Analytics />
+              <div className="fixed right-0 bottom-0 p-4 font-semibold text-muted">
+                For Supporting❤️, Give Me
+                <span className='pr-1'></span>
+                <Link href={"https://github.com/ghasemizade/js-interview-qs"} className='border border-gray-400 hover:border-yellow-400 px-1.5 rounded-md'>star⭐</Link>
+              </div>
+            </ThemeProvider>
+          </QuizProvider>
+        </AuthProvider>
       </body>
     </html>
   )
