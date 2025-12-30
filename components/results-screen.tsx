@@ -1,7 +1,8 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { Button } from "@/components/ui/button"
+import { useQuiz } from "@/lib/quiz-context"
 
 interface ResultsScreenProps {
   results: any
@@ -17,8 +18,41 @@ export default function ResultsScreen({
   quizType = "javascript",
 }: ResultsScreenProps) {
   const [expandedQuestions, setExpandedQuestions] = useState<Record<number, boolean>>({})
+  const { addAttempt } = useQuiz()
+  const [isSaving, setIsSaving] = useState(false)
+  const [saveError, setSaveError] = useState<string | null>(null)
 
   const { selectedAnswers, questions, difficulty } = results
+
+  useEffect(() => {
+    const saveQuizAttempt = async () => {
+      if (isSaving || saveError) return
+
+      setIsSaving(true)
+      setSaveError(null)
+
+      try {
+        const correctCount = questions.reduce((count: number, q: any, index: number) => {
+          return selectedAnswers[index] === q.correct ? count + 1 : count
+        }, 0)
+
+        await addAttempt({
+          quiz_type: quizType,
+          difficulty: difficulty,
+          score: correctCount,
+          max_score: questions.length,
+          answers: selectedAnswers,
+        })
+      } catch (error) {
+        console.error("Failed to save quiz attempt:", error)
+        setSaveError(error instanceof Error ? error.message : "Failed to save attempt")
+      } finally {
+        setIsSaving(false)
+      }
+    }
+
+    saveQuizAttempt()
+  }, []) // Save only once when component mounts
 
   const correctCount = questions.reduce((count: number, q: any, index: number) => {
     return selectedAnswers[index] === q.correct ? count + 1 : count
@@ -42,6 +76,18 @@ export default function ResultsScreen({
   return (
     <div className="min-h-screen bg-gradient-to-br from-background via-card to-background p-4 md:p-8">
       <div className="mx-auto max-w-2xl">
+        {/* Save Status */}
+        {saveError && (
+          <div className="mb-4 p-4 bg-red-500/10 border border-red-500/30 rounded-lg text-red-700 dark:text-red-400">
+            <p className="text-sm font-medium">Warning: {saveError}</p>
+          </div>
+        )}
+        {isSaving && (
+          <div className="mb-4 p-4 bg-blue-500/10 border border-blue-500/30 rounded-lg text-blue-700 dark:text-blue-400">
+            <p className="text-sm font-medium">Saving your quiz attempt...</p>
+          </div>
+        )}
+
         {/* Score Summary */}
         <div className="bg-card border border-border rounded-lg shadow-sm p-8 mb-8 text-center">
           <div className="mb-4">
@@ -123,10 +169,10 @@ export default function ResultsScreen({
                             <div
                               key={optionIndex}
                               className={`p-2 rounded text-sm ${isCorrectAnswer
-                                ? "bg-green-500/10 text-green-700 dark:text-green-400 border border-green-500/30"
-                                : isUserAnswer && !isCorrect
-                                  ? "bg-red-500/10 text-red-700 dark:text-red-400 border border-red-500/30"
-                                  : "text-muted-foreground"
+                                  ? "bg-green-500/10 text-green-700 dark:text-green-400 border border-green-500/30"
+                                  : isUserAnswer && !isCorrect
+                                    ? "bg-red-500/10 text-red-700 dark:text-red-400 border border-red-500/30"
+                                    : "text-muted-foreground"
                                 }`}
                             >
                               <span className="font-medium">{["A", "B", "C", "D"][optionIndex]}.</span> {option}
