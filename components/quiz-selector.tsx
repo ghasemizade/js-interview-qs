@@ -23,7 +23,7 @@ export default function QuizSelector() {
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                         {/* JavaScript Quiz */}
                         <Link href="/javascript">
-                            <div className="bg-card border-2 border-border rounded-lg p-8 cursor-pointer hover:border-primary/50 hover:shadow-lg transition-all h-full flex flex-col justify-between">
+                            <div className="bg-card border-2 border-border rounded-lg p-8 cursor-pointer hover:border-yellow-500 hover:shadow-lg transition-all h-full flex flex-col justify-between">
                                 <div>
                                     <div className="text-5xl font-bold text-yellow-500 mb-4">JS</div>
                                     <h2 className="text-2xl font-semibold text-foreground mb-2">JavaScript Interview Quiz</h2>
@@ -37,7 +37,7 @@ export default function QuizSelector() {
 
                         {/* HTML Quiz */}
                         <Link href="/html">
-                            <div className="bg-card border-2 border-border rounded-lg p-8 cursor-pointer hover:border-primary/50 hover:shadow-lg transition-all h-full flex flex-col justify-between">
+                            <div className="bg-card border-2 border-border rounded-lg p-8 cursor-pointer hover:border-orange-500 hover:shadow-lg transition-all h-full flex flex-col justify-between">
                                 <div>
                                     <div className="text-5xl font-bold text-orange-500 mb-4">HTML</div>
                                     <h2 className="text-2xl font-semibold text-foreground mb-2">HTML Interview Quiz</h2>
@@ -51,7 +51,7 @@ export default function QuizSelector() {
 
                         {/* CSS Quiz */}
                         <Link href="/css">
-                            <div className="bg-card border-2 border-border rounded-lg p-8 cursor-pointer hover:border-primary/50 hover:shadow-lg transition-all h-full flex flex-col justify-between">
+                            <div className="bg-card border-2 border-border rounded-lg p-8 cursor-pointer hover:border-purple-500 hover:shadow-lg transition-all h-full flex flex-col justify-between">
                                 <div>
                                     <div className="text-5xl font-bold text-purple-500 mb-4">CSS</div>
                                     <h2 className="text-2xl font-semibold text-foreground mb-2">CSS Interview Quiz</h2>
@@ -65,7 +65,7 @@ export default function QuizSelector() {
 
                         {/* React Quiz */}
                         <Link href="/react">
-                            <div className="bg-card border-2 border-border rounded-lg p-8 cursor-pointer hover:border-primary/50 hover:shadow-lg transition-all h-full flex flex-col justify-between">
+                            <div className="bg-card border-2 border-border rounded-lg p-8 cursor-pointer hover:border-cyan-500 hover:shadow-lg transition-all h-full flex flex-col justify-between">
                                 <div>
                                     <div className="text-5xl font-bold text-cyan-500 mb-4">React</div>
                                     <h2 className="text-2xl font-semibold text-foreground mb-2">React Interview Quiz</h2>
@@ -79,7 +79,7 @@ export default function QuizSelector() {
 
                         {/* TypeScript Quiz */}
                         <Link href="/typescript">
-                            <div className="bg-card border-2 border-border rounded-lg p-8 cursor-pointer hover:border-primary/50 hover:shadow-lg transition-all h-full flex flex-col justify-between">
+                            <div className="bg-card border-2 border-border rounded-lg p-8 cursor-pointer hover:border-blue-500 hover:shadow-lg transition-all h-full flex flex-col justify-between">
                                 <div>
                                     <div className="text-5xl font-bold text-blue-500 mb-4">TS</div>
                                     <h2 className="text-2xl font-semibold text-foreground mb-2">TypeScript Interview Quiz</h2>
