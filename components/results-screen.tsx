@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState, useEffect, useRef } from "react"
 import { Button } from "@/components/ui/button"
 import { useQuiz } from "@/lib/quiz-context"
 
@@ -17,20 +17,18 @@ export default function ResultsScreen({
   onChangeDifficulty,
   quizType = "javascript",
 }: ResultsScreenProps) {
+  const hasSavedRef = useRef(false)
   const [expandedQuestions, setExpandedQuestions] = useState<Record<number, boolean>>({})
   const { addAttempt } = useQuiz()
   const [isSaving, setIsSaving] = useState(false)
   const [saveError, setSaveError] = useState<string | null>(null)
-
   const { selectedAnswers, questions, difficulty } = results
 
   useEffect(() => {
+    if (hasSavedRef.current) return
+    hasSavedRef.current = true
+
     const saveQuizAttempt = async () => {
-      if (isSaving || saveError) return
-
-      setIsSaving(true)
-      setSaveError(null)
-
       try {
         const correctCount = questions.reduce((count: number, q: any, index: number) => {
           return selectedAnswers[index] === q.correct ? count + 1 : count
@@ -38,21 +36,18 @@ export default function ResultsScreen({
 
         await addAttempt({
           quiz_type: quizType,
-          difficulty: difficulty,
+          difficulty,
           score: correctCount,
           max_score: questions.length,
           answers: selectedAnswers,
         })
       } catch (error) {
         console.error("Failed to save quiz attempt:", error)
-        setSaveError(error instanceof Error ? error.message : "Failed to save attempt")
-      } finally {
-        setIsSaving(false)
       }
     }
 
     saveQuizAttempt()
-  }, []) // Save only once when component mounts
+  }, [])
 
   const correctCount = questions.reduce((count: number, q: any, index: number) => {
     return selectedAnswers[index] === q.correct ? count + 1 : count
@@ -169,10 +164,10 @@ export default function ResultsScreen({
                             <div
                               key={optionIndex}
                               className={`p-2 rounded text-sm ${isCorrectAnswer
-                                  ? "bg-green-500/10 text-green-700 dark:text-green-400 border border-green-500/30"
-                                  : isUserAnswer && !isCorrect
-                                    ? "bg-red-500/10 text-red-700 dark:text-red-400 border border-red-500/30"
-                                    : "text-muted-foreground"
+                                ? "bg-green-500/10 text-green-700 dark:text-green-400 border border-green-500/30"
+                                : isUserAnswer && !isCorrect
+                                  ? "bg-red-500/10 text-red-700 dark:text-red-400 border border-red-500/30"
+                                  : "text-muted-foreground"
                                 }`}
                             >
                               <span className="font-medium">{["A", "B", "C", "D"][optionIndex]}.</span> {option}
