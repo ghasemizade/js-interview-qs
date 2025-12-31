@@ -6,6 +6,7 @@ import QuizSelector from "@/components/quiz-selector"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
 import Image from "next/image"
+import { ThemeToggle } from "@/components/ui/ThemeToggle"
 
 function DashboardContent() {
     const { user, logout } = useAuth()
@@ -20,8 +21,7 @@ function DashboardContent() {
             <header className="border-b border-border z-10 relative">
                 <div className="max-w-6xl mx-auto px-4 md:px-8 py-6 flex items-center justify-between">
                     <div>
-                        <h1 className="text-2xl font-bold text-foreground">Interview Quiz Platform</h1>
-                        <p className="text-muted-foreground">Welcome, {user?.name}!</p>
+                        <ThemeToggle />
                     </div>
                     <div className="flex items-center gap-4">
                         <Link href="/profile">
