@@ -38,7 +38,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className='dark' style={{ colorScheme: "dark" }}>
+    <html lang="en" suppressHydrationWarning={true}>
       <body className={`font-sans antialiased z-10`} >
         <AuthProvider>
           <QuizProvider>
@@ -48,7 +48,7 @@ export default function RootLayout({
               <div className="fixed right-0 bottom-0 p-4 font-semibold text-muted-foreground">
                 For Supporting❤️, Give Me
                 <span className='pr-1'></span>
-                <Link href={"https://github.com/ghasemizade/js-interview-qs"} className='border border-gray-400 hover:border-yellow-400 px-1.5 rounded-md'>star⭐</Link>
+                <Link href={"https://github.com/ghasemizade/interview-qs"} className='border border-gray-400 hover:border-yellow-400 px-1.5 rounded-md'>star⭐</Link>
               </div>
             </ThemeProvider>
           </QuizProvider>
