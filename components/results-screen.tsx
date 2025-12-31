@@ -69,7 +69,7 @@ export default function ResultsScreen({
     difficulty === "junior" ? "bg-blue-500" : difficulty === "mid" ? "bg-amber-500" : "bg-purple-500"
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-background via-card to-background p-4 md:p-8">
+    <div className="min-h-screen bg-linear-to-br from-background via-card to-background p-4 md:p-8">
       <div className="mx-auto max-w-2xl">
         {/* Save Status */}
         {saveError && (
@@ -141,7 +141,7 @@ export default function ResultsScreen({
                   >
                     <div className="flex items-center gap-3 flex-1">
                       <span
-                        className={`flex-shrink-0 w-6 h-6 rounded-full flex items-center justify-center text-sm font-bold text-white ${isCorrect ? "bg-green-500" : "bg-red-500"
+                        className={`shrink-0 w-6 h-6 rounded-full flex items-center justify-center text-sm font-bold text-white ${isCorrect ? "bg-green-500" : "bg-red-500"
                           }`}
                       >
                         {isCorrect ? "✓" : "✗"}
