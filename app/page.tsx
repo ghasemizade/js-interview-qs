@@ -33,7 +33,7 @@ export default function Home() {
           <span className="text-2xl font-bold">InterviewPro</span>
         </div>
         <div className="flex gap-4">
-          <Link href="/auth?mode=login" className="px-6 py-2 text-muted hover:text-gray-300 transition">
+          <Link href="/auth?mode=login" className="px-6 py-2 text-muted-foreground hover:text-gray-300 transition">
             Sign In
           </Link>
           <Link
@@ -133,10 +133,14 @@ export default function Home() {
           Start Practicing Now
         </Link>
       </section>
-
       {/* Footer */}
-      <footer className="border-t border-slate-700 py-8 text-center text-gray-400">
+      <footer className="border-t border-slate-700 py-8 text-center text-gray-400 flex justify-around">
         <p>&copy; 2025 InterviewPro. All rights reserved.</p>
+        <div>
+          For Supporting💙, Give Me
+          <span className='pr-1'></span>
+          <Link href={"https://github.com/ghasemizade/interview-qs"} className='border border-gray-400 hover:border-yellow-400 px-1.5 rounded-md'>star⭐</Link>
+        </div>
       </footer>
     </div>
   )
