@@ -79,7 +79,7 @@ export function AbsorptionAnimation({ shape = "circle" }: { shape?: "circle" | "
         window.addEventListener("resize", setCanvasSize)
 
         const drawShape = (ctx: CanvasRenderingContext2D, x: number, y: number, size: number, opacity: number) => {
-            ctx.fillStyle = `rgba(99, 102, 241, ${opacity})`
+            ctx.fillStyle = `rgba(43, 127, 255, ${opacity})`
 
             switch (shape) {
                 case "circle":

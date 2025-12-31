@@ -2,17 +2,11 @@
 
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
-import Image from "next/image"
-import { AbsorptionAnimation } from "./think-animation"
 
 export default function QuizSelector() {
     return (
         <>
-            {/* <div
-                className="absolute inset-0 z-0 transition-opacity duration-1000 ease-out"
-            >
-                <AbsorptionAnimation shape="circle" />
-            </div> */}
+
             <div className="min-h-screen via-card to-background p-4 md:p-8 flex items-center justify-center z-10 relative">
                 <div className="max-w-3xl w-full">
                     <div className="text-center mb-12">
