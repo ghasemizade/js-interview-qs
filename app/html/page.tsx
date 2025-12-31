@@ -1,12 +1,13 @@
 "use client"
 
 import { useState } from "react"
+import { ProtectedRoute } from "@/components/protected-route"
 import QuizScreen from "@/components/quiz-screen"
 import ResultsScreen from "@/components/results-screen"
 import DifficultyScreen from "@/components/difficulty-screen-html"
 import type { Difficulty } from "@/lib/html-questions"
 
-export default function HTMLQuiz() {
+function HTMLQuizContent() {
     const [difficulty, setDifficulty] = useState<Difficulty | null>(null)
     const [showResults, setShowResults] = useState(false)
     const [results, setResults] = useState(null)
@@ -51,5 +52,13 @@ export default function HTMLQuiz() {
                 />
             )}
         </main>
+    )
+}
+
+export default function HTMLQuiz() {
+    return (
+        <ProtectedRoute>
+            <HTMLQuizContent />
+        </ProtectedRoute>
     )
 }
