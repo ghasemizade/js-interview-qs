@@ -11,8 +11,8 @@ const _geist = Geist({ subsets: ["latin"] });
 const _geistMono = Geist_Mono({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: 'Interview Question',
-  description: 'Created By Hosein',
+  title: 'Online Interview Platform for Smarter Hiring',
+  description: 'Conduct seamless online interviews with real-time video, structured evaluations, and candidate management tools—all in one secure platform.',
   icons: {
     icon: [
       {
