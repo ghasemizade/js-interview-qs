@@ -1,64 +1,12 @@
-"use client"
+import { createMetadata } from "@/lib/metadata";
+import JavaScriptQuiz from "./javascriptQuizClient";
 
-import { useState } from "react"
-import { ProtectedRoute } from "@/components/protected-route"
-import QuizScreen from "@/components/quiz-screen"
-import ResultsScreen from "@/components/results-screen"
-import DifficultyScreen from "@/components/difficulty-screen-js"
-import type { Difficulty } from "@/lib/questions"
+export const metadata = createMetadata({
+    title: "JavaScript Interview Questions & Quiz | Interview Pro",
+    description: "Practice JavaScript interview questions with real-world quizzes. Cover closures, async, promises, ES6+, and core JS concepts.",
+    path: "/javascript",
+});
 
-function JavaScriptQuizContent() {
-    const [difficulty, setDifficulty] = useState<Difficulty | null>(null)
-    const [showResults, setShowResults] = useState(false)
-    const [results, setResults] = useState(null)
-
-    const handleDifficultySelect = (selectedDifficulty: Difficulty) => {
-        setDifficulty(selectedDifficulty)
-    }
-
-    const handleQuizComplete = (quizResults: any) => {
-        setResults(quizResults)
-        setShowResults(true)
-    }
-
-    const handleRetry = () => {
-        setShowResults(false)
-        setResults(null)
-    }
-
-    const handleChangeDifficulty = () => {
-        setDifficulty(null)
-        setShowResults(false)
-        setResults(null)
-    }
-
-    return (
-        <main className="min-h-screen bg-background text-foreground">
-            {!difficulty ? (
-                <DifficultyScreen onSelectDifficulty={handleDifficultySelect} />
-            ) : !showResults ? (
-                <QuizScreen
-                    difficulty={difficulty}
-                    onComplete={handleQuizComplete}
-                    onChangeDifficulty={handleChangeDifficulty}
-                    quizType="javascript"
-                />
-            ) : (
-                <ResultsScreen
-                    results={results}
-                    onRetry={handleRetry}
-                    onChangeDifficulty={handleChangeDifficulty}
-                    quizType="javascript"
-                />
-            )}
-        </main>
-    )
-}
-
-export default function JavaScriptQuiz() {
-    return (
-        <ProtectedRoute>
-            <JavaScriptQuizContent />
-        </ProtectedRoute>
-    )
+export default function CssPage() {
+    return <JavaScriptQuiz />;
 }
