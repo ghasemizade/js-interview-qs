@@ -1,64 +1,12 @@
-"use client"
+import { createMetadata } from "@/lib/metadata";
+import HTMLQuiz from "./htmlQuizClient";
 
-import { useState } from "react"
-import { ProtectedRoute } from "@/components/protected-route"
-import QuizScreen from "@/components/quiz-screen"
-import ResultsScreen from "@/components/results-screen"
-import DifficultyScreen from "@/components/difficulty-screen-html"
-import type { Difficulty } from "@/lib/html-questions"
+export const metadata = createMetadata({
+    title: "HTML Interview Questions & Quiz | Interview Pro",
+    description: "Prepare for HTML interviews with interactive quizzes. Learn semantic HTML, accessibility, SEO basics, and best practices.",
+    path: "/css",
+});
 
-function HTMLQuizContent() {
-    const [difficulty, setDifficulty] = useState<Difficulty | null>(null)
-    const [showResults, setShowResults] = useState(false)
-    const [results, setResults] = useState(null)
-
-    const handleDifficultySelect = (selectedDifficulty: Difficulty) => {
-        setDifficulty(selectedDifficulty)
-    }
-
-    const handleQuizComplete = (quizResults: any) => {
-        setResults(quizResults)
-        setShowResults(true)
-    }
-
-    const handleRetry = () => {
-        setShowResults(false)
-        setResults(null)
-    }
-
-    const handleChangeDifficulty = () => {
-        setDifficulty(null)
-        setShowResults(false)
-        setResults(null)
-    }
-
-    return (
-        <main className="min-h-screen bg-background text-foreground">
-            {!difficulty ? (
-                <DifficultyScreen onSelectDifficulty={handleDifficultySelect} />
-            ) : !showResults ? (
-                <QuizScreen
-                    difficulty={difficulty}
-                    onComplete={handleQuizComplete}
-                    onChangeDifficulty={handleChangeDifficulty}
-                    quizType="html"
-                />
-            ) : (
-                <ResultsScreen
-                    results={results}
-                    onRetry={handleRetry}
-                    onChangeDifficulty={handleChangeDifficulty}
-                    quizType="html"
-                />
-            )}
-        </main>
-    )
-}
-
-export default function HTMLQuiz() {
-    return (
-        <ProtectedRoute>
-            <HTMLQuizContent />
-        </ProtectedRoute>
-    )
+export default function CssPage() {
+    return <HTMLQuiz />;
 }
