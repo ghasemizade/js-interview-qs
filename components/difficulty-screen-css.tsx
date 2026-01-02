@@ -9,7 +9,7 @@ interface DifficultyScreenProps {
 
 export default function DifficultyScreenCSS({ onSelectDifficulty }: DifficultyScreenProps) {
     return (
-        <div className="min-h-screen bg-gradient-to-br from-background via-card to-background p-4 md:p-8 flex items-center justify-center">
+        <div className="min-h-screen bg-linear-to-br from-background via-card to-background p-4 md:p-8 flex items-center justify-center">
             <div className="max-w-3xl w-full">
                 <div className="text-center mb-12">
                     <div className="text-6xl font-bold text-purple-500 mb-4">CSS</div>
