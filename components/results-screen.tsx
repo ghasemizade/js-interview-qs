@@ -8,7 +8,7 @@ interface ResultsScreenProps {
   results: any
   onRetry: () => void
   onChangeDifficulty: () => void
-  quizType?: "javascript" | "html" | "css"
+  quizType?: "javascript" | "html" | "css" | "react" | "typescript"
 }
 
 export default function ResultsScreen({
