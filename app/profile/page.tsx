@@ -30,7 +30,7 @@ function ProfileContent() {
 
     if (isLoading) {
         return (
-            <main className="min-h-screen bg-gradient-to-br from-background via-card to-background p-4 md:p-8 flex items-center justify-center">
+            <main className="min-h-screen bg-linear-to-br from-background via-card to-background p-4 md:p-8 flex items-center justify-center">
                 <div className="text-center">
                     <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto"></div>
                     <p className="mt-4 text-gray-600">Loading...</p>
@@ -40,7 +40,7 @@ function ProfileContent() {
     }
 
     return (
-        <main className="min-h-screen bg-gradient-to-br from-background via-card to-background p-4 md:p-8">
+        <main className="min-h-screen bg-linear-to-br from-background via-card to-background p-4 md:p-8">
             <div className="max-w-4xl mx-auto">
                 {/* Header */}
                 <div className="flex items-center justify-between mb-8">
