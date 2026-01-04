@@ -3,8 +3,8 @@ import TypeScriptQuiz from "./typescriptQuizClient";
 
 export const metadata = createMetadata({
     title: "TypeScript Interview Questions & Quiz | Interview Pro",
-    description: "Test your React JS knowledge with interactive interview questions and quizzes. Cover components, hooks, state management, and modern React patterns.",
-    path: "/react",
+    description: "Test your TypeScript skills with interactive interview questions and quizzes. Practice types, interfaces, generics, enums, and advanced TypeScript concepts.",
+    path: "/typescript",
 });
 
 export default function CssPage() {
