@@ -28,25 +28,25 @@ export default function Home() {
   return (
     <>
       <div className="min-h-screen bg-linear-to-br from-slate-900 via-slate-800 to-slate-900 text-white">
-        <div
+        {/* <div
           className="absolute inset-0 z-0 transition-opacity duration-1000 ease-out"
         >
           <AbsorptionAnimation shape="circle" />
-        </div>
+        </div> */}
         {/* Navigation */}
         <div className="z-10 relative">
           <nav className="flex items-center justify-between px-6 py-4 max-w-7xl mx-auto">
             <div className="flex items-center gap-2">
               <Code2 className="w-8 h-8 text-blue-500" />
-              <span className="text-2xl font-bold">InterviewPro</span>
+              <span className="text-xl md:text-2xl font-bold">InterviewPro</span>
             </div>
             <div className="flex gap-4">
-              <Link href="/auth?mode=login" className="px-6 py-2 text-muted-foreground hover:text-gray-300 transition">
+              <Link href="/auth?mode=login" className="hidden md:flex px-6 py-2 text-muted-foreground hover:text-gray-300 transition">
                 Sign In
               </Link>
               <Link
                 href="/auth?mode=signup"
-                className="px-6 py-2 bg-blue-600 hover:bg-blue-700 rounded-lg font-semibold transition"
+                className="px-3 py-1 sm:px-6 sm:py-2 flex items-center bg-blue-600 hover:bg-blue-700 rounded-lg font-semibold transition"
               >
                 Sign Up
               </Link>
@@ -142,7 +142,7 @@ export default function Home() {
             </Link>
           </section>
           {/* Footer */}
-          <footer className="border-t border-slate-700 py-8 text-center text-gray-400 flex justify-around">
+          <footer className="border-t border-slate-700 py-8 text-center text-gray-400 flex justify-around flex-col md:flex-row gap-4 items-center">
             <p>&copy; 2025 InterviewPro. All rights reserved.</p>
             <div>
               For Supporting💙, Give Me
