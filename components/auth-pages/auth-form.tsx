@@ -5,6 +5,7 @@ import { useRouter, useSearchParams } from "next/navigation"
 import { useAuth } from "@/lib/auth-context"
 import LoginForm from "./login-form"
 import SignupForm from "./signup-form"
+import { Code2 } from "lucide-react"
 
 export function AuthForm() {
     const [isLogin, setIsLogin] = useState(true)
@@ -36,7 +37,10 @@ export function AuthForm() {
 
     return (
         <>
-            <h1 className="text-3xl font-bold text-center mb-2 text-gray-900">Interview Quiz</h1>
+            <div className="mb-6 flex items-center justify-center gap-2">
+                <h1 className="text-3xl font-bold text-center mb-2 text-gray-900">Interview Pro</h1>
+                <Code2 className="w-10 h-10 text-blue-500" />
+            </div>
             <p className="text-center text-gray-600 mb-8">{isLogin ? "Welcome back!" : "Create your account"}</p>
 
             {successMessage && (
@@ -45,7 +49,7 @@ export function AuthForm() {
 
             {isLogin ? <LoginForm /> : <SignupForm />}
 
-            <div className="mt-6 text-center">
+            <div className="mt-6 text-center ">
                 <p className="text-gray-600 text-sm">
                     {isLogin ? "Don't have an account?" : "Already have an account?"}{" "}
                     <button onClick={() => setIsLogin(!isLogin)} className="text-blue-600 hover:text-blue-700 font-medium">
