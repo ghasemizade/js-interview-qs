@@ -37,7 +37,7 @@ export default function SignupForm() {
     }
 
     return (
-        <form onSubmit={handleSubmit} className="space-y-4 w-full max-w-md">
+        <form onSubmit={handleSubmit} className="space-y-4 w-full max-w-md text-muted-foreground">
             <div className="space-y-2">
                 <label htmlFor="email" className="block text-sm font-medium">
                     Email
@@ -47,7 +47,7 @@ export default function SignupForm() {
                     type="email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 "
                     placeholder="you@example.com"
                     required
                 />
