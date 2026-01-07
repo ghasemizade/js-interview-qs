@@ -6,6 +6,7 @@ import { useRouter } from "next/navigation"
 import { useEffect } from "react"
 import { BookOpen, Code2, Zap } from "lucide-react"
 import { AbsorptionAnimation } from "@/components/think-animation"
+import Image from "next/image"
 
 export default function Home() {
   const { user, isLoading } = useAuth()
@@ -37,7 +38,7 @@ export default function Home() {
         <div className="z-10 relative">
           <nav className="flex items-center justify-between px-6 py-4 max-w-7xl mx-auto">
             <div className="flex items-center gap-2">
-              <Code2 className="w-8 h-8 text-blue-500" />
+              <Image src={"/logo.png"} height={50} width={50} alt="logo pix" />
               <span className="text-xl md:text-2xl font-bold">InterviewPro</span>
             </div>
             <div className="flex gap-4">
