@@ -26,10 +26,7 @@ export default function DifficultyScreen({
             Select your experience level to get started
           </p>
         </div>
-
-        {/* Difficulty Cards */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {/* Junior Developer */}
           <div
             onClick={() => onSelectDifficulty('junior')}
             className="bg-card border-2 border-border rounded-lg p-6 cursor-pointer hover:border-primary/50 hover:shadow-lg transition-all group"
