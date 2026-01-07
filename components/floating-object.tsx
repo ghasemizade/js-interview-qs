@@ -3,7 +3,11 @@
 import Image from 'next/image'
 import { useEffect, useRef, useState } from 'react'
 
-export default function FloatingObject() {
+export interface FloatingObjectProps {
+    floatingLogo: string
+}
+
+export default function FloatingObject({ floatingLogo }: FloatingObjectProps) {
     const containerRef = useRef<HTMLDivElement>(null)
     const objectRef = useRef<HTMLImageElement>(null)
     const [position, setPosition] = useState({ x: 0, y: 0 })
@@ -92,7 +96,7 @@ export default function FloatingObject() {
             className="fixed inset-0 overflow-hidden pointer-events-none opacity-35"
         >
             <Image
-                src={'/JavaScript-logo.jpg'}
+                src={floatingLogo}
                 width={150}
                 height={150}
                 alt='JS Logo Floating'

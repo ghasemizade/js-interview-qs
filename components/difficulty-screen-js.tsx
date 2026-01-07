@@ -18,7 +18,7 @@ export default function DifficultyScreen({
       <div className="max-w-3xl w-full">
         {/* Header */}
         <div className="text-center mb-12">
-          <FloatingObject />
+          <FloatingObject floatingLogo="/JavaScript-logo.jpg" />
           <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-3">
             JavaScript Interview Quiz
           </h1>
