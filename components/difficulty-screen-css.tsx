@@ -2,6 +2,7 @@
 
 import { Button } from "@/components/ui/button"
 import type { Difficulty } from "@/lib/css-questions"
+import FloatingObject from "./floating-object"
 
 interface DifficultyScreenProps {
     onSelectDifficulty: (difficulty: Difficulty) => void
@@ -11,6 +12,7 @@ export default function DifficultyScreenCSS({ onSelectDifficulty }: DifficultySc
     return (
         <div className="min-h-screen bg-linear-to-br from-background via-card to-background p-4 md:p-8 flex items-center justify-center">
             <div className="max-w-3xl w-full">
+                <FloatingObject floatingLogo="/css-logo.png" c1="rgba(102, 51, 153, 0.8)" c2="rgba(255, 0, 0, 0.29)" />
                 <div className="text-center mb-12">
                     <div className="text-6xl font-bold text-purple-500 mb-4">CSS</div>
                     <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-3">CSS Interview Quiz</h1>
