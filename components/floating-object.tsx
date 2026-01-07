@@ -5,9 +5,11 @@ import { useEffect, useRef, useState } from 'react'
 
 export interface FloatingObjectProps {
     floatingLogo: string
+    c1: string
+    c2: string
 }
 
-export default function FloatingObject({ floatingLogo }: FloatingObjectProps) {
+export default function FloatingObject({ floatingLogo, c1, c2 }: FloatingObjectProps) {
     const containerRef = useRef<HTMLDivElement>(null)
     const objectRef = useRef<HTMLImageElement>(null)
     const [position, setPosition] = useState({ x: 0, y: 0 })
@@ -105,8 +107,8 @@ export default function FloatingObject({ floatingLogo }: FloatingObjectProps) {
                 style={{
                     left: `${position.x}px`,
                     top: `${position.y}px`,
-                    background: 'linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%)',
-                    boxShadow: '0 20px 40px rgba(245, 191, 0, 0.4), 0 0 20px rgba(255, 0, 0, 0.19)',
+                    background: 'transparent',
+                    boxShadow: `0 20px 40px ${c1}, 0 0 20px ${c2}`,
                     transition: 'none',
                 }}
             />
