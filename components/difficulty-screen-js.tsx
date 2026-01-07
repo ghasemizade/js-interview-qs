@@ -2,7 +2,6 @@
 
 import { Button } from '@/components/ui/button';
 import type { Difficulty } from '@/lib/questions';
-import Image from 'next/image';
 import FloatingObject from './floating-object';
 
 interface DifficultyScreenProps {
@@ -18,7 +17,7 @@ export default function DifficultyScreen({
       <div className="max-w-3xl w-full">
         {/* Header */}
         <div className="text-center mb-12">
-          <FloatingObject floatingLogo="/JavaScript-logo.jpg" />
+          <FloatingObject floatingLogo="/JavaScript-logo.jpg" c1="rgba(245, 191, 0, 0.4)" c2="rgba(255, 0, 0, 0.19)" />
           <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-3">
             JavaScript Interview Quiz
           </h1>
