@@ -2,6 +2,8 @@
 
 import { Button } from "@/components/ui/button"
 import type { Difficulty } from "@/lib/react-questions"
+import FloatingObject from "./floating-object"
+import Image from "next/image"
 
 interface DifficultyScreenProps {
     onSelectDifficulty: (difficulty: Difficulty) => void
@@ -11,8 +13,11 @@ export default function DifficultyScreenReact({ onSelectDifficulty }: Difficulty
     return (
         <div className="min-h-screen bg-linear-to-br from-background via-card to-background p-4 md:p-8 flex items-center justify-center">
             <div className="max-w-3xl w-full">
+                <FloatingObject floatingLogo="/react-logo.png" c1="rgba(49, 120, 198, 0.4)" c2="rgba(255, 0, 0, 0.19)" />
                 <div className="text-center mb-12">
-                    <div className="text-6xl font-bold text-green-500 mb-4">⚛️</div>
+                    <div className="text-6xl font-bold text-green-500 mb-4">
+                        <Image src="/react-logo.png" alt="React Logo" width={64} height={64} className="inline-block mr-2 mb-2" />
+                    </div>
                     <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-3">React Interview Quiz</h1>
                     <p className="text-muted-foreground text-lg">Choose your skill level and test your React knowledge</p>
                 </div>
