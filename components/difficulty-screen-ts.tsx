@@ -2,6 +2,7 @@
 
 import { Button } from "@/components/ui/button"
 import type { Difficulty } from "@/lib/typescript-questions"
+import FloatingObject from "./floating-object"
 
 interface DifficultyScreenProps {
     onSelectDifficulty: (difficulty: Difficulty) => void
@@ -11,6 +12,7 @@ export default function DifficultyScreenTypeScript({ onSelectDifficulty }: Diffi
     return (
         <div className="min-h-screen bg-linear-to-br from-background via-card to-background p-4 md:p-8 flex items-center justify-center">
             <div className="max-w-3xl w-full">
+                <FloatingObject floatingLogo="/typescript-logo.png" c1="rgba(49, 120, 198, 0.4)" c2="rgba(255, 0, 0, 0.19)" />
                 <div className="text-center mb-12">
                     <div className="text-6xl font-bold text-blue-500 mb-4">TypeScript</div>
                     <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-3">TypeScript Interview Quiz</h1>
