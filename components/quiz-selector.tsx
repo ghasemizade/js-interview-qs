@@ -84,6 +84,20 @@ export default function QuizSelector() {
                                 <Button className="w-full bg-blue-500 hover:bg-blue-600 text-white">Start TypeScript Quiz</Button>
                             </div>
                         </Link>
+
+                        {/* NodeJs Quiz */}
+                        <Link href="/nodejs">
+                            <div className="bg-card border-2 border-border rounded-lg p-8 cursor-pointer hover:border-green-500 hover:shadow-lg transition-all h-full flex flex-col justify-between">
+                                <div>
+                                    <div className="text-5xl font-bold text-green-600 mb-4">NodeJs</div>
+                                    <h2 className="text-2xl font-semibold text-foreground mb-2">NodeJS Interview Quiz</h2>
+                                    <p className="text-muted-foreground mb-6">
+                                        Master NodeJs basics and advanced concepts with 30 questions across three difficulty levels
+                                    </p>
+                                </div>
+                                <Button className="w-full bg-green-600 hover:bg-green-600 text-white">Start NodeJs Quiz</Button>
+                            </div>
+                        </Link>
                     </div>
                 </div>
             </div>
